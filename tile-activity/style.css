@@ -41,6 +41,16 @@ img {
   color: #444;
 }
 
+/* Adds a shadow and slight scale when hovering over a tile card */
+.tile-hover {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tile-hover:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
 /* 💡 Optional Enhancements:
    - Try adding a hover effect with transform and box-shadow
    - Use border-radius for rounded image corners

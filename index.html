@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <title>LiveLab Launcher</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to custom CSS for hover effect -->
+    <link rel="stylesheet" href="style.css">
     <style>
       body {
         font-family: sans-serif;
@@ -24,5 +28,41 @@
 
     <a href="/tile-activity/tile.html" target="_blank">🖼️ Tile by Nehir Starter</a>
     <a href="/level-up-parallax/parallax.html" target="_blank">🌀 Parallax Level-Up</a>
+
+    <div class="container mt-4">
+      <div class="row">
+        <!-- Example of three tiles, each in its own card -->
+        <div class="col-md-4 mb-3">
+          <!-- Card for the first tile -->
+          <div class="card tile-hover">
+            <!-- Card image -->
+            <img src="image1.jpg" class="card-img-top img-fluid" alt="Tile 1">
+            <!-- Card body -->
+            <div class="card-body">
+              <h5 class="card-title">Tile 1</h5>
+              <p class="card-text">This is the first tile.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card tile-hover">
+            <img src="image2.jpg" class="card-img-top img-fluid" alt="Tile 2">
+            <div class="card-body">
+              <h5 class="card-title">Tile 2</h5>
+              <p class="card-text">This is the second tile.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card tile-hover">
+            <img src="image3.jpg" class="card-img-top img-fluid" alt="Tile 3">
+            <div class="card-body">
+              <h5 class="card-title">Tile 3</h5>
+              <p class="card-text">This is the third tile.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
