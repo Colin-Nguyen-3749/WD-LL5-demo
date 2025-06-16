@@ -25,12 +25,20 @@ img {
   max-width: 250px;
 }
 
-/* Optional decorative border for each tile */
+/* This class makes the card image a perfect square and covers the area */
+.square-card-img {
+  aspect-ratio: 1 / 1;      /* Makes the image square */
+  width: 100%;              /* Fills the card width */
+  object-fit: cover;        /* Ensures the image covers the square area */
+  border-radius: 0.5rem;    /* Optional: slightly rounded corners for a nice look */
+}
+
+/* Decorative frame for each card */
 .border-tile {
-  border: 20px solid transparent;
-  border-image: url('../assets/wood.jpg') 30 round;
-  padding: 5px;
-  background-color: white;
+  border: 6px double #bfa181;      /* Double border with a gold-like color */
+  border-radius: 1rem;             /* Rounded corners for a softer look */
+  box-shadow: 0 4px 16px rgba(191,161,129,0.08); /* Subtle shadow for depth */
+  background: #f9f6f2;             /* Light background for contrast */
 }
 
 /* Optional caption style if you add labels under your tiles */
