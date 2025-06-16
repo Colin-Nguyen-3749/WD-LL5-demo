@@ -54,14 +54,129 @@ img {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+/* On hover, the card jumps up a little and gets a shadow */
 .tile-hover:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  transform: scale(1.03) translateY(-12px); /* scale up and move up */
+  box-shadow: 0 16px 32px rgba(0,0,0,0.18);
 }
 
-/* 💡 Optional Enhancements:
-   - Try adding a hover effect with transform and box-shadow
-   - Use border-radius for rounded image corners
-   - Combine with Bootstrap utilities like p-3, mb-4, text-center
-   - Ask AI: “Add a subtle zoom effect on image hover”
-*/
+/* Smiley/frown face styles and animation */
+.smiley-face {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  transform: translate(-50%, -50%) scale(0.2);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.2s;
+  /* Will be shown/animated with classes below */
+}
+
+/* Show smiley with burst animation */
+.smiley-burst {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.2);
+  animation: burst-pop 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+/* Hide smiley with frown and fade out */
+.smiley-frown {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.2);
+  animation: frown-pop 0.25s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+/* After frown, fade out quickly */
+.smiley-fade {
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+/* Keyframes for burst pop */
+@keyframes burst-pop {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.0);
+    opacity: 1;
+  }
+}
+
+/* Keyframes for frown pop (quick shake) */
+@keyframes frown-pop {
+  0% {
+    transform: translate(-50%, -50%) scale(1.2) rotate(0deg);
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(1.2) rotate(-10deg);
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2) rotate(0deg);
+  }
+}
+
+/* SVG face is centered and sized */
+.smiley-face svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Star/confetti burst animation - bigger stars/confetti */
+.star-burst {
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 10;
+}
+
+.burst-star, .burst-confetti {
+  position: absolute;
+  left: -18px;
+  top: -18px;
+  opacity: 0.85;
+  animation: burst-move 0.7s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+}
+
+.burst-star svg {
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+
+.burst-confetti {
+  width: 20px;
+  height: 32px;
+  border-radius: 6px;
+  transform: rotate(0deg);
+}
+
+/* Animate stars/confetti outward and fade */
+@keyframes burst-move {
+  0% {
+    transform: rotate(var(--burst-angle, 0deg)) translate(0,0) scale(0.7);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(var(--burst-angle, 0deg)) translate(var(--burst-distance, 80px),0) scale(1.1);
+    opacity: 0;
+  }
+}
